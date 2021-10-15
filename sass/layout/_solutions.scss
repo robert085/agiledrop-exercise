@@ -1,0 +1,48 @@
+.solutions-box {
+    @include sec-pad;
+    grid-column: full-start / full-end;
+    background-color: $color-grey-light;
+
+    display: grid;
+    grid-template-columns: inherit;
+    grid-column-gap: inherit;
+    
+}
+
+.inner-container {
+    grid-column: content-start / content-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    @include grid-gap;
+    @media only screen and (max-width: $screen-sm) {
+        grid-template-columns: 1fr;
+	}
+}
+
+.solutions {
+    display: grid;
+    grid-template-rows: 1fr min-content 1fr;
+    row-gap: 3.2rem;
+
+    &__heading {
+        align-self: end;
+    }
+
+    &__text {
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+    }
+
+    &__btn {
+        align-self: start;
+        justify-self: start;
+    }
+
+}
+
+.solutions-img {
+    align-self: center;
+    justify-self: end;
+    display: block;
+    width: 100%;
+}

@@ -1,0 +1,65 @@
+.our-services {
+    @include sec-pad;
+    margin-top: -6rem;
+    grid-column: content-start / content-end;
+    
+    display: grid; 
+    grid-template-rows: min-content 1fr;
+    @include grid-gap;
+}
+
+.services {
+
+    &__heading {
+        margin-bottom: 3rem;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 2.2rem;
+        line-height: 3.2rem;
+        color: $font-light;
+        width: 70%;
+
+        @media only screen and (max-width: $screen-sm) {
+            width: 100%;
+        }
+    }
+
+}
+.features-box {
+    display: grid;
+    grid-template-rows: min-content auto;
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+    @include grid-gap;
+
+    @media only screen and (max-width: $screen-sm) {
+        grid-template-columns: minmax(30rem, 1fr);
+    }
+  
+}
+
+.features {
+    display: grid;
+    row-gap: 2.4rem;
+
+    &__text {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    }
+
+    &__btn {
+        justify-self: start;
+    }
+
+    
+}
+
+
+@media only screen and (max-width: $screen-sm) {
+    .features:not(:last-child) {
+    padding-bottom: 4.6rem;
+    border-bottom: 2px solid $color-grey-light;
+    }
+}

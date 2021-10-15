@@ -1,0 +1,58 @@
+.technologies {
+    @include sec-pad;
+    padding-bottom: 0rem;
+    grid-column: content-start / content-end;
+    
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 3.2rem;
+   
+}
+
+.tech-box {
+
+    &__nav {
+        display: grid;
+        justify-content: stretch;
+        grid-auto-flow: column;
+
+        @media only screen and (max-width: $screen-sm) {
+            grid-auto-flow: row;
+        }
+    
+    }
+
+    &__content {
+        padding: 4.6rem;
+        border: 1px solid $color-grey-light;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        grid-template-rows: repeat(2, minmax(min-content, max-content));
+        grid-gap: 4.6rem;
+        
+        @media only screen and (max-width: $screen-sm) {
+            padding: 2rem;
+        }
+        .tech-img {
+            align-self: top;
+            justify-self: start;
+            display: block;
+            width: 100%;            
+        }
+        
+        .tech-text {
+            align-self: center;
+            justify-self: center;
+            font-size: 1.8rem;
+            line-height: 3.2rem;
+            
+        }
+    }
+
+    
+
+}
+
+
+

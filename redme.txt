@@ -1,0 +1,2 @@
+Heading - Montserat, sans-serif
+body text - Nunito, sans-serif
