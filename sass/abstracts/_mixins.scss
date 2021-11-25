@@ -1,18 +1,17 @@
 //SECTION PADDINGS
 @mixin sec-pad {
-    padding: 9.6rem 0;
-    
-    @media only screen and (max-width: $screen-sm) {
-        padding: 6rem 0;
-    }
-}
+  padding: 9.6rem 0;
 
+  @media only screen and (max-width: $screen-sm) {
+    padding: 6rem 0;
+  }
+}
 
 //GRID-GAP
 @mixin grid-gap {
-    grid-gap: 9.6rem;
+  grid-gap: 9.6rem;
 
-    @media only screen and (max-width: $screen-sm) {
-        grid-gap: 6rem;
-	}
+  @media only screen and (max-width: $screen-sm) {
+    grid-gap: 6rem;
+  }
 }

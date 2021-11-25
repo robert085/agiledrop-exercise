@@ -1,0 +1,32 @@
+.off-canvas {
+  background-color: $color-secondary;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+  transition: all 2s;
+}
+
+.off-list {
+  font-size: 4rem;
+  font-family: "Montserrat", sans-serif;
+  transform: translateX(-20%);
+  &__item {
+    list-style-type: none;
+    margin-bottom: 6rem;
+  }
+  &__link {
+    text-decoration: none;
+    color: $color-grey-light;
+  }
+}

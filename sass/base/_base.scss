@@ -10,8 +10,11 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 
-  @media only screen and (max-width: $screen-md-font-small) {
+  @media only screen and (max-width: $screen-md) {
     font-size: 50%;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    font-size: 80%;
   }
 }
 
@@ -21,10 +24,9 @@ body {
   font-size: 1.6rem;
   color: $font-primary;
 }
-
 .container {
-  //position: relative;
   display: grid;
+  position: relative;
 
   grid-template-columns:
     [full-start] minmax(4rem, 24rem) [content-start] repeat(
@@ -45,10 +47,10 @@ body {
       [content-end] minmax(4rem, 5rem) [full-end];
   }
 
-  @media only screen and (max-width: $screen-sm) {
+  @media only screen and (max-width: $screen-tab) {
     grid-template-columns:
-      [full-start] minmax(2rem, 18rem) [content-start] minmax(36rem, 1fr)
-      [content-end] minmax(2rem, 18rem) [full-end];
+      [full-start] minmax(2rem, 6rem) [content-start] minmax(36rem, 1fr)
+      [content-end] minmax(2rem, 6rem) [full-end];
 
     grid-template-rows: repeat(auto-fill, 1fr);
     grid-column-gap: 4vw;

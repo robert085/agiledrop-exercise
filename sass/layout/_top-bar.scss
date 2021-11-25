@@ -5,123 +5,121 @@
   height: 7.2rem;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0 4rem;
-  z-index: 100;
+  z-index: 5;
 
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(max-content, 1fr));
   align-items: center;
+}
 
-  &__logo {
-    grid-column: 1 / 2;
+.logo {
+  grid-column: 1 / 2;
+  display: block;
+  margin-right: auto;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+}
+.nav {
+  display: flex;
+  @media only screen and (max-width: $screen-tab) {
+    display: none;
+  }
+}
+.list {
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  margin-left: auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  &__item {
     display: block;
-    margin-right: auto;
+    padding: 1rem 0;
+    margin-right: 3vw;
   }
 
-  &__right {
-    grid-column: 2 / -1;
-    grid-column: 2 / 3;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: end;
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: #fff;
+    line-height: 3.2rem;
+    padding: 1rem 0;
+    position: relative;
   }
 
-  .desktop {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    justify-items: end;
-
-    @media only screen and (max-width: $screen-sm) {
-      display: none;
-    }
+  &__link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.4s;
   }
 
-  .nav {
-    &__list {
-      list-style: none;
-      font-family: "Montserrat", sans-serif;
-      font-size: 1.5rem;
-      margin-left: auto;
-      text-align: center;
-
-      display: flex;
-      flex-direction: row;
-      justify-items: end;
-    }
-
-    &__item {
-      display: block;
-      padding: 1rem 0;
-      // background-color: grey;
-      margin-right: 4vw;
-    }
-
-    &__link:link,
-    &__link:visited {
-      text-decoration: none;
-      color: #fff;
-      line-height: 3.2rem;
-      padding: 1rem 0;
-      position: relative;
-    }
-
-    &__link::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #fff;
-      transition: all 0.4s;
-    }
-
-    &__link:hover::after {
-      width: 100%;
-    }
-
-    &__link--active::after {
-      width: 100%;
-    }
+  &__link:hover::after {
+    width: 100%;
   }
 
-  .off-canvas {
-    grid-column: 3 / 4;
-    @media only screen and (min-width: $screen-sm) {
-      display: none;
-    }
+  &__link--active::after {
+    width: 100%;
   }
+}
 
-  .button-offc {
-    &__icon {
+.off-canvas-tog {
+  display: none;
+  @media only screen and (max-width: $screen-tab) {
+    display: block;
+    z-index: 15;
+  }
+}
+
+.button-offc {
+  cursor: pointer;
+  padding: 1rem 0 1rem 1rem;
+  &__icon {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 4rem;
+    border-radius: 100px;
+    background-color: $color-grey-light;
+
+    &::before {
       content: "";
       display: block;
       height: 3px;
       width: 4rem;
       border-radius: 50px;
       background-color: $color-grey-light;
-
-      &::before {
-        content: "";
-        display: block;
-        height: 3px;
-        width: 4rem;
-        border-radius: 50px;
-        background-color: $color-grey-light;
-        transform: translateY(-10px);
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        height: 3px;
-        width: 4rem;
-        border-radius: 50px;
-        background-color: $color-grey-light;
-        transform: translateY(7px);
-      }
+      transform: translateY(-10px);
     }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 4rem;
+      border-radius: 50px;
+      background-color: $color-grey-light;
+      transform: translateY(7px);
+    }
+  }
+}
+
+.hidde {
+  @media only screen and (max-width: $screen-tab) {
+    display: none;
   }
 }

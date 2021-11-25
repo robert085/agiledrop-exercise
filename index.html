@@ -20,34 +20,30 @@
 
   <body>
     <div class="container">
-      <!--MAIN MENU-->
+      <!--NAV-BAR-->
       <div class="nav-bar">
         <!--LOGO-->
         <a href="#"
-          ><img
-            src="svg/Logo-agiledrop.svg"
-            alt="agiledrop logo"
-            class="nav-bar__logo"
+          ><img src="svg/logo-agiledrop.svg" alt="agiledrop logo" class="logo"
         /></a>
-        <div class="nav-bar__right">
-          <!--DESKTOP-MENU-->
-          <div class="desktop">
-            <nav class="nav">
-              <ul class="nav__list">
-                <li class="nav__item">
-                  <a href="#" class="nav__link nav__link--active">Services</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#" class="nav__link">Solutions</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#" class="nav__link">Technologies</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#" class="nav__link">Testimonials</a>
-                </li>
-              </ul>
-            </nav>
+        <!--MAIN-MENU-->
+        <div class="menu">
+          <nav class="nav">
+            <ul class="list">
+              <li class="list__item">
+                <a href="#" class="list__link list__link--active">Services</a>
+              </li>
+              <li class="list__item">
+                <a href="#" class="list__link">Solutions</a>
+              </li>
+              <li class="list__item">
+                <a href="#" class="list__link">Technologies</a>
+              </li>
+              <li class="list__item">
+                <a href="#" class="list__link">Testimonials</a>
+              </li>
+            </ul>
+            <!--CTA-->
             <button class="btn btn--secondary">
               <a href="#" class="btn__link">
                 <span btn__link--text>Get developers</span>
@@ -58,14 +54,32 @@
                 </svg>
               </a>
             </button>
-          </div>
-          <!--OFF-CANVAS-ICON-->
-          <div class="off-canvas">
+          </nav>
+          <!--TOGGLER-->
+          <div class="off-canvas-tog">
             <button type="button" class="button-offc">
               <div class="button-offc__icon"></div>
             </button>
           </div>
         </div>
+      </div>
+      <!--OFF-CANVAS-MENU-->
+
+      <div class="off-canvas hidden">
+        <ul class="off-list">
+          <li class="off-list__item">
+            <a class="off-list__link" href="#">Services</a>
+          </li>
+          <li class="off-list__item">
+            <a class="off-list__link" href="#">Solutions</a>
+          </li>
+          <li class="off-list__item">
+            <a class="off-list__link" href="#">Technologies</a>
+          </li>
+          <li class="off-list__item">
+            <a class="off-list__link" href="#">Testimonials</a>
+          </li>
+        </ul>
       </div>
 
       <!--HEADER-->
@@ -272,5 +286,6 @@
         </div>
       </div>
     </div>
+    <script src="js/script.js"></script>
   </body>
 </html>
