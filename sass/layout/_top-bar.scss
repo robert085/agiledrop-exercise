@@ -1,17 +1,32 @@
 .nav-bar {
   grid-column: full-start / full-end;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left: 0;
   height: 7.2rem;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 0 4rem;
-  z-index: 5;
-
+  z-index: 100;
   width: 100%;
-
   display: grid;
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
   align-items: center;
+}
+
+.sticky {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation-name: slidein;
+  animation-duration: 0.4s;
+  transition: 0.8s;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 .logo {

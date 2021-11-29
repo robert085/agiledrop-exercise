@@ -19,11 +19,11 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container" id="top">
       <!--NAV-BAR-->
       <div class="nav-bar">
         <!--LOGO-->
-        <a href="#"
+        <a href="#top" class="logo__link"
           ><img src="svg/logo-agiledrop.svg" alt="agiledrop logo" class="logo"
         /></a>
         <!--MAIN-MENU-->
@@ -31,16 +31,16 @@
           <nav class="nav">
             <ul class="list">
               <li class="list__item">
-                <a href="#" class="list__link list__link--active">Services</a>
+                <a href="#section--1" class="list__link">Services</a>
               </li>
               <li class="list__item">
-                <a href="#" class="list__link">Solutions</a>
+                <a href="#section--2" class="list__link">Solutions</a>
               </li>
               <li class="list__item">
-                <a href="#" class="list__link">Technologies</a>
+                <a href="#section--3" class="list__link">Technologies</a>
               </li>
               <li class="list__item">
-                <a href="#" class="list__link">Testimonials</a>
+                <a href="#section--4" class="list__link">Testimonials</a>
               </li>
             </ul>
             <!--CTA-->
@@ -102,7 +102,7 @@
       </header>
 
       <!--SERVICES-->
-      <section class="our-services">
+      <section class="our-services" id="section--1">
         <div class="services">
           <h2 class="services__heading">Our services</h2>
           <p class="services__text">
@@ -180,7 +180,7 @@
         </div>
       </section>
 
-      <section class="solutions-box">
+      <section class="solutions-box" id="section--2">
         <div class="inner-container">
           <div class="solutions">
             <h2 class="solutions__heading">Cutting edge solutions</h2>
@@ -208,7 +208,7 @@
       </section>
 
       <!--TECHNOLOGIES-->
-      <div class="technologies">
+      <section class="technologies" id="section--3">
         <h2>Technologies</h2>
         <div class="tech-box">
           <div class="tech-box__nav">
@@ -249,10 +249,10 @@
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <!--ABOUT-->
-      <div class="about">
+      <section class="about" id="section--4">
         <figure class="quote">
           <img src="img/person.jpg" alt="cofounder" class="quote__img" />
           <figcaption class="quote__caption">
@@ -276,7 +276,7 @@
           <div class="pagination__circle pagination__circle--active"></div>
           <div class="pagination__circle"></div>
         </div>
-      </div>
+      </section>
 
       <!--FOOTER-->
       <div class="footer">

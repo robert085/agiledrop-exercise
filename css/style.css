@@ -183,7 +183,7 @@ h4 {
     color: #ee4732; }
 
 .header {
-  padding: 16rem 0 12rem 0;
+  padding: 20rem 0 20rem 0;
   grid-column: full-start / full-end;
   align-self: center;
   background-image: linear-gradient(to right, rgba(3, 38, 51, 0.5), rgba(3, 38, 51, 0.5)), url("../img/hero.jpg");
@@ -322,7 +322,7 @@ h4 {
   @media only screen and (max-width: 62.5em) {
     .inner-container {
       grid-gap: 6rem; } }
-  @media only screen and (max-width: 62.5em) {
+  @media only screen and (max-width: 52.125em) {
     .inner-container {
       grid-template-columns: 1fr; } }
 
@@ -410,7 +410,8 @@ h4 {
     flex-direction: column;
     color: #414141;
     margin-left: -10rem;
-    padding: 3.2rem 0; }
+    padding: 3.2rem 0;
+    z-index: 1; }
     .quote__caption .mark {
       z-index: 100;
       display: block;
@@ -454,16 +455,29 @@ h4 {
 
 .nav-bar {
   grid-column: full-start / full-end;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left: 0;
   height: 7.2rem;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 0 4rem;
-  z-index: 5;
+  z-index: 100;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
   align-items: center; }
+
+.sticky {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation-name: slidein;
+  animation-duration: 0.4s;
+  transition: 0.8s; }
+
+@keyframes slidein {
+  from {
+    transform: translateY(-50%); }
+  to {
+    transform: translateY(0%); } }
 
 .logo {
   grid-column: 1 / 2;
