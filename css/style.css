@@ -222,6 +222,7 @@ h4 {
 
 .off-canvas {
   background-color: #032633;
+  opacity: 0.95;
   position: fixed;
   top: 0;
   right: 0;
@@ -232,6 +233,9 @@ h4 {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
+  @media only screen and (max-width: 52.125em) {
+    .off-canvas {
+      width: 100vw; } }
 
 .hidden {
   display: none;
@@ -239,8 +243,8 @@ h4 {
 
 .off-list {
   font-size: 4rem;
-  font-family: "Montserrat", sans-serif;
-  transform: translateX(-20%); }
+  text-align: center;
+  font-family: "Montserrat", sans-serif; }
   .off-list__item {
     list-style-type: none;
     margin-bottom: 6rem; }

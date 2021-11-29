@@ -6,6 +6,9 @@ const nav = document.querySelector('.nav-bar');
 const links = document.querySelectorAll('.list__link');
 const logo = document.querySelector('.logo');
 const sections = document.querySelectorAll('section');
+const offCanvas = document.querySelector('.off-canvas');
+const btnOffCanvas = document.querySelector('.button-offc');
+const offCanvasLinks = document.querySelectorAll('.off-list__link');
 
 // Sticky nav-bar
 const stickyNav = function (entries) {
@@ -65,4 +68,34 @@ const secObserver = new IntersectionObserver(secActive, {
 
 sections.forEach(sec => {
   secObserver.observe(sec);
+});
+
+// OFF CANVAS
+btnOffCanvas.addEventListener('click', function (e) {
+  // console.log(e.target);
+  const target = e.target.closest('.off-canvas-tog');
+  const button = target.querySelector('.button-offc');
+  console.log(button);
+
+  if (offCanvas.classList.contains('hidden')) {
+    offCanvas.classList.remove('hidden');
+  } else offCanvas.classList.add('hidden');
+});
+
+offCanvas.addEventListener('click', function (e) {
+  const target = e.target;
+  console.log(e.target);
+
+  if (target.classList.contains('off-list__link')) {
+    const targetId = target.getAttribute('href');
+    console.log(targetId);
+
+    sections.forEach(sec => {
+      const secId = sec.getAttribute('id');
+      if (secId === targetId) {
+        sec.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+    offCanvas.classList.add('hidden');
+  }
 });
