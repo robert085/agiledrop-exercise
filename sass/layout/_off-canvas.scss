@@ -11,6 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.4s;
 
   @media only screen and (max-width: $screen-tab) {
     width: 100vw;
@@ -18,21 +19,32 @@
 }
 
 .hidden {
-  display: none;
-  transition: all 2s;
+  transform: translateX(100%);
+  z-index: 100;
 }
 
 .off-list {
   font-size: 4rem;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  // transform: translateX(-20%);
+  
+  transform: translateX(100%);
+  transition: all 0.8s;
+  opacity: 0;
+
   &__item {
     list-style-type: none;
-    margin-bottom: 6rem;
+    &:not(:last-of-type) {
+      margin-bottom: 6rem;
+    }
   }
   &__link {
     text-decoration: none;
     color: $color-grey-light;
   }
+}
+
+.reveal-list {
+  transform: translateX(0%);
+  opacity: 1;
 }

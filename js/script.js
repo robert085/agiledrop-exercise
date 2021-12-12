@@ -1,16 +1,22 @@
 'use strict';
 
+// const { list } = require('postcss');
+
 // Variables
+const body = document.querySelector('body');
 const header = document.querySelector('.header');
 const nav = document.querySelector('.nav-bar');
 const links = document.querySelectorAll('.list__link');
 const logo = document.querySelector('.logo');
 const sections = document.querySelectorAll('section');
 const offCanvas = document.querySelector('.off-canvas');
-const btnOffCanvas = document.querySelector('.button-offc');
-const offCanvasLinks = document.querySelectorAll('.off-list__link');
+const offCanvasBtn = document.querySelector('.button-offc');
+const offCanvasL = document.querySelector('.off-list');
+const offCanvasLI = document.querySelectorAll('.off-list__item');
+const offCanvasLIL = document.querySelectorAll('.off-list__link');
 
-// Sticky nav-bar
+// STICKY NAV ____________
+//////////////////////////
 const stickyNav = function (entries) {
   const [entry] = entries;
   //   console.log(entry);
@@ -28,28 +34,30 @@ const stickyObserver = new IntersectionObserver(stickyNav, {
 stickyObserver.observe(header);
 
 // SCROLL TO _____________
+//////////////////////////
+window.addEventListener('scroll', function (e) {
+  console.log(Math.round(window.scrollY));
+});
+
 document.querySelector('.list').addEventListener('click', function (e) {
   e.preventDefault();
 
-  //   links.forEach(link => link.classList.remove('list__link--active'));
-  //   console.log(e.target.closest('.list__item'));
   const clicked = e.target.closest('.list__link');
   if (!clicked) return;
   const id = clicked.getAttribute('href');
 
-  //   console.log(clicked, id);
   document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  //   clicked.classList.add('list__link--active');
+  // document.querySelector(id).style.paddingTop = '100px';
 });
 
-// ACTIVE SECTION _________
+// ACTIVE SECTION - OBSERVER_________
+///////////////////////////
 const secActive = function (entries) {
   const [entry] = entries;
   console.log(entry);
 
   if (entry.isIntersecting) {
     const id = entry.target.getAttribute('id');
-    // console.log(id);
 
     links.forEach(link => {
       // console.log(link.getAttribute('href'));
@@ -62,40 +70,49 @@ const secActive = function (entries) {
 
 const secObserver = new IntersectionObserver(secActive, {
   root: null,
-  threshold: 0.5,
-  margin: '60px 0 0 0',
+  threshold: 0.6,
 });
 
 sections.forEach(sec => {
   secObserver.observe(sec);
 });
 
-// OFF CANVAS
-btnOffCanvas.addEventListener('click', function (e) {
-  // console.log(e.target);
-  const target = e.target.closest('.off-canvas-tog');
-  const button = target.querySelector('.button-offc');
-  console.log(button);
-
+// BUTTON OFF CANVAS _________
+//////////////////////////////
+offCanvasBtn.addEventListener('click', function () {
   if (offCanvas.classList.contains('hidden')) {
     offCanvas.classList.remove('hidden');
-  } else offCanvas.classList.add('hidden');
+    offCanvasL.classList.add('reveal-list');
+  } else {
+    offCanvas.classList.add('hidden');
+    offCanvasL.classList.remove('reveal-list');
+
+  }
 });
 
+// LOGO - home _________
+///////////////////////
+logo.addEventListener('click', function (e) {
+  e.preventDefault();
+  const logo = e.target.closest('.logo__link');
+  const id = logo.getAttribute('href');
+  document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+
+  if (!offCanvas.classList.contains('hidden'))
+    offCanvas.classList.add('hidden');
+});
+
+// OFF CANVAS MENU_________
+///////////////////////
 offCanvas.addEventListener('click', function (e) {
+  e.preventDefault();
   const target = e.target;
-  console.log(e.target);
 
   if (target.classList.contains('off-list__link')) {
     const targetId = target.getAttribute('href');
-    console.log(targetId);
 
-    sections.forEach(sec => {
-      const secId = sec.getAttribute('id');
-      if (secId === targetId) {
-        sec.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+
     offCanvas.classList.add('hidden');
   }
 });
