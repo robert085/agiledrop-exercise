@@ -1,150 +1,144 @@
 //BUTTON-CTA
 .btn {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    border: none; 
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  border: none;
 
-    &__link {
-        display: flex;
+  &__link {
+    display: flex;
 
-        &:link,
-        &:visited {
-        text-decoration: none; 
-        color: #fff;
-        letter-spacing: 2px;
-        padding: 1.6rem 2.4rem;
-        }
-
-        &:hover > .btn__icon {
-            transform: translateX(6px);
-        }
-    }
-    
-    &__icon {
-        margin-left: 1rem;
-        fill: #fff;
-        height: 1.6rem;
-        width: 1.6rem;
-        transition: all .4s;
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: #fff;
+      letter-spacing: 2px;
+      padding: 1.6rem 2.4rem;
     }
 
-    &--primary {
-        font-size: 1.4rem;
-        background-color: $color-primary;
-        color: #fff;
+    &:hover > .btn__icon {
+      transform: translateX(6px);
     }
+  }
 
-    &--secondary {
-        background-color: rgba(0, 0, 0, 0);
-        font-size: 1.2rem; 
-        border: 2px solid #fff;
-    } 
+  &__icon {
+    margin-left: 1rem;
+    fill: #fff;
+    height: 1.6rem;
+    width: 1.6rem;
+    transition: all 0.4s;
+  }
+
+  &--primary {
+    font-size: 1.4rem;
+    background-color: $color-primary;
+    color: #fff;
+  }
+
+  &--secondary {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+  }
 }
 
 //BUTTON SMALL ----------
 .btn-small {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-    border: none; 
-    background-color: rgba(0, 0, 0, 0);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
 
-    &__link:link,
-    &__link:visited {
-        text-decoration: none;
-        color: $font-primary;
-        line-height: 3.2rem;
-        position: relative;
-        padding: .4rem;
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: $font-primary;
+    line-height: 3.2rem;
+    position: relative;
+    padding: 0.4rem;
 
-        display: flex;
-        align-items: center;
-        
-    }
+    display: flex;
+    align-items: center;
+  }
 
-    &__link--span {
-        margin-right: 1rem;
-        z-index: 1;
-    }
-    
-    &__link--arrow {
-        width: 1.6rem;
-        height: 1.6rem;
-        fill: $font-primary;
-        // z-index: 10;
-        position: absolute;
-        left: 9rem;
-        transition: all .2s ease-in-out;
-        
+  &__link--span {
+    margin-right: 1rem;
+    z-index: 1;
+  }
 
-    }
+  &__link--arrow {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: $font-primary;
+    // z-index: 10;
+    position: absolute;
+    left: 9rem;
+    transition: all 0.2s ease-in-out;
+  }
 
-    &__link::before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 110%;
-        background-color: $color-primary;
-        transition: all .2s;
-        
-    }
+  &__link::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 110%;
+    background-color: $color-primary;
+    transition: all 0.2s;
+  }
 
-    &__link:hover {
-        color: $color-grey-light;
-    }
+  &__link:hover {
+    color: $color-grey-light;
+  }
 
-    &__link:hover > &__link--arrow {
-        fill: $color-primary;
-        margin-left: 1rem;
-    }
+  &__link:hover > &__link--arrow {
+    fill: $color-primary;
+    margin-left: 1rem;
+  }
 
-    &__link:hover::before {
-        height: 100%;
-        width: 100%;
-        padding: 0 1rem;
-    }
+  &__link:hover::before {
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+  }
 }
 
 //BUTTON TAB ----------
 .btn-tab {
-    text-align: left;
-    padding: 2.4rem 4.8rem;
-    background-color: $color-grey-light;
-    border: none;
-    cursor: pointer;
-    border-top: 4px solid #f5f5f5;
-    transition: all .2s;
-    
-    &:hover,
-    &:active {
-        background-color: #fff;
-        border-top: 4px solid $color-primary;
-        box-sizing: inherit;
-    }
+  text-align: left;
+  padding: 2.4rem 4.8rem;
+  background-color: $color-grey-light;
+  border: none;
+  cursor: pointer;
+  border-top: 4px solid #f5f5f5;
+  transition: all 0.2s;
 
-    &__text {
-        font-size: 1.4rem;
-        line-height: 2.4rem;
-    }
-
-}
-
-.active {
+  &:hover,
+  &:active {
     background-color: #fff;
     border-top: 4px solid $color-primary;
     box-sizing: inherit;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
 }
 
+.active {
+  background-color: #fff;
+  border-top: 4px solid $color-primary;
+  box-sizing: inherit;
+}
 
 //BUTTON OFF-CANVAS ----------
 .button-offc {
-    padding: 2rem;
-    background-color: $color-transparent;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
+  padding: 2rem;
+  background-color: $color-transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
 }

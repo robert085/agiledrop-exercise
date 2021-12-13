@@ -14,6 +14,9 @@ const offCanvasBtn = document.querySelector('.button-offc');
 const offCanvasL = document.querySelector('.off-list');
 const offCanvasLI = document.querySelectorAll('.off-list__item');
 const offCanvasLIL = document.querySelectorAll('.off-list__link');
+const techNav = document.querySelector('.tech-box__nav');
+const techButtons = document.querySelectorAll('.btn-tab');
+const techContent = document.querySelectorAll('.tech-box__content');
 
 // STICKY NAV ____________
 //////////////////////////
@@ -36,7 +39,7 @@ stickyObserver.observe(header);
 // SCROLL TO _____________
 //////////////////////////
 window.addEventListener('scroll', function (e) {
-  console.log(Math.round(window.scrollY));
+  // console.log(Math.round(window.scrollY));
 });
 
 document.querySelector('.list').addEventListener('click', function (e) {
@@ -54,7 +57,7 @@ document.querySelector('.list').addEventListener('click', function (e) {
 ///////////////////////////
 const secActive = function (entries) {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
 
   if (entry.isIntersecting) {
     const id = entry.target.getAttribute('id');
@@ -86,7 +89,6 @@ offCanvasBtn.addEventListener('click', function () {
   } else {
     offCanvas.classList.add('hidden');
     offCanvasL.classList.remove('reveal-list');
-
   }
 });
 
@@ -115,4 +117,24 @@ offCanvas.addEventListener('click', function (e) {
 
     offCanvas.classList.add('hidden');
   }
+});
+
+// TECHNOLOGIES
+techNav.addEventListener('click', function (e) {
+  const btn = e.target.closest('.btn-tab');
+  console.log(btn);
+
+  const id = btn.dataset.btn;
+  console.log(id);
+
+  techButtons.forEach(b => {
+    b.classList.remove('active');
+    btn.classList.add('active');
+    // id = b.getAttribute('id');
+  });
+
+  techContent.forEach(content => {
+    content.classList.add('tech-hidden');
+    document.getElementById(id).classList.remove('tech-hidden');
+  });
 });
