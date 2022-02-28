@@ -18,8 +18,8 @@
     "autoprefixer": "^10.4.0",
     "node-sass": "^6.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.1",
-    "postcss-cli": "^9.0.2"
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0"
   },
   "dependencies": {}
 }

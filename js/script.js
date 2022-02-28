@@ -1,7 +1,5 @@
 'use strict';
 
-// const { list } = require('postcss');
-
 // Variables
 const body = document.querySelector('body');
 const header = document.querySelector('.header');
@@ -18,11 +16,12 @@ const techNav = document.querySelector('.tech-box__nav');
 const techButtons = document.querySelectorAll('.btn-tab');
 const techContent = document.querySelectorAll('.tech-box__content');
 
-// STICKY NAV ____________
+
+
+// STICKY NAV
 //////////////////////////
 const stickyNav = function (entries) {
   const [entry] = entries;
-  //   console.log(entry);
 
   if (!entry.isIntersecting) {
     nav.classList.add('sticky');
@@ -36,11 +35,9 @@ const stickyObserver = new IntersectionObserver(stickyNav, {
 
 stickyObserver.observe(header);
 
-// SCROLL TO _____________
+// SCROLL TO
 //////////////////////////
-window.addEventListener('scroll', function (e) {
-  // console.log(Math.round(window.scrollY));
-});
+window.addEventListener('scroll', function (e) {});
 
 document.querySelector('.list').addEventListener('click', function (e) {
   e.preventDefault();
@@ -50,14 +47,12 @@ document.querySelector('.list').addEventListener('click', function (e) {
   const id = clicked.getAttribute('href');
 
   document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  // document.querySelector(id).style.paddingTop = '100px';
 });
 
-// ACTIVE SECTION - OBSERVER_________
+// ACTIVE SECTION - OBSERVER
 ///////////////////////////
 const secActive = function (entries) {
   const [entry] = entries;
-  // console.log(entry);
 
   if (entry.isIntersecting) {
     const id = entry.target.getAttribute('id');
@@ -80,19 +75,29 @@ sections.forEach(sec => {
   secObserver.observe(sec);
 });
 
-// BUTTON OFF CANVAS _________
+// BUTTON OFF CANVAS
 //////////////////////////////
+// Helper function __________________________
+const delayList = function (toggle) {
+  offCanvasLI.forEach((item, i) => {
+    setTimeout(function () {
+      item.classList.toggle('reveal-list');
+      console.log(i);
+    }, i * 100);
+  });
+};
+// _________________________________________
 offCanvasBtn.addEventListener('click', function () {
   if (offCanvas.classList.contains('hidden')) {
     offCanvas.classList.remove('hidden');
-    offCanvasL.classList.add('reveal-list');
+    delayList('add');
   } else {
     offCanvas.classList.add('hidden');
-    offCanvasL.classList.remove('reveal-list');
+    delayList('remove');
   }
 });
 
-// LOGO - home _________
+// LOGO - home
 ///////////////////////
 logo.addEventListener('click', function (e) {
   e.preventDefault();
@@ -104,7 +109,7 @@ logo.addEventListener('click', function (e) {
     offCanvas.classList.add('hidden');
 });
 
-// OFF CANVAS MENU_________
+// OFF CANVAS MENU
 ///////////////////////
 offCanvas.addEventListener('click', function (e) {
   e.preventDefault();
@@ -112,25 +117,20 @@ offCanvas.addEventListener('click', function (e) {
 
   if (target.classList.contains('off-list__link')) {
     const targetId = target.getAttribute('href');
-
     document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-
     offCanvas.classList.add('hidden');
   }
 });
 
 // TECHNOLOGIES
+///////////////////////
 techNav.addEventListener('click', function (e) {
   const btn = e.target.closest('.btn-tab');
-  console.log(btn);
-
   const id = btn.dataset.btn;
-  console.log(id);
 
   techButtons.forEach(b => {
     b.classList.remove('active');
     btn.classList.add('active');
-    // id = b.getAttribute('id');
   });
 
   techContent.forEach(content => {

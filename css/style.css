@@ -143,6 +143,7 @@ h4 {
   border: none;
   cursor: pointer;
   border-top: 4px solid #f5f5f5;
+  border-bottom: 1px solid #ececec;
   transition: all 0.2s; }
   .btn-tab:hover, .btn-tab:active {
     background-color: #fff;
@@ -243,12 +244,12 @@ h4 {
 .off-list {
   font-size: 4rem;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  transform: translateX(100%);
-  transition: all 0.8s;
-  opacity: 0; }
+  font-family: "Montserrat", sans-serif; }
   .off-list__item {
-    list-style-type: none; }
+    list-style-type: none;
+    transform: translateX(100%);
+    transition: all 0.8s;
+    opacity: 0; }
     .off-list__item:not(:last-of-type) {
       margin-bottom: 6rem; }
   .off-list__link {
