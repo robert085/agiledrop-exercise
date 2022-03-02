@@ -16,13 +16,10 @@ const techNav = document.querySelector('.tech-box__nav');
 const techButtons = document.querySelectorAll('.btn-tab');
 const techContent = document.querySelectorAll('.tech-box__content');
 
-
-
 // STICKY NAV
 //////////////////////////
 const stickyNav = function (entries) {
   const [entry] = entries;
-
   if (!entry.isIntersecting) {
     nav.classList.add('sticky');
   } else nav.classList.remove('sticky');
@@ -30,14 +27,14 @@ const stickyNav = function (entries) {
 
 const stickyObserver = new IntersectionObserver(stickyNav, {
   root: null,
-  threshold: 0.15,
+  threshold: 0.14,
 });
 
 stickyObserver.observe(header);
 
 // SCROLL TO
 //////////////////////////
-window.addEventListener('scroll', function (e) {});
+// window.addEventListener('scroll', function (e) {});
 
 document.querySelector('.list').addEventListener('click', function (e) {
   e.preventDefault();
@@ -53,7 +50,7 @@ document.querySelector('.list').addEventListener('click', function (e) {
 ///////////////////////////
 const secActive = function (entries) {
   const [entry] = entries;
-
+  console.log(entry);
   if (entry.isIntersecting) {
     const id = entry.target.getAttribute('id');
 
@@ -78,7 +75,7 @@ sections.forEach(sec => {
 // BUTTON OFF CANVAS
 //////////////////////////////
 // Helper function __________________________
-const delayList = function (toggle) {
+const delayList = function () {
   offCanvasLI.forEach((item, i) => {
     setTimeout(function () {
       item.classList.toggle('reveal-list');
@@ -90,10 +87,14 @@ const delayList = function (toggle) {
 offCanvasBtn.addEventListener('click', function () {
   if (offCanvas.classList.contains('hidden')) {
     offCanvas.classList.remove('hidden');
-    delayList('add');
+    document
+      .querySelector('.button-offc__icon')
+      .classList.add('button-offc__icon--close');
+    delayList();
   } else {
     offCanvas.classList.add('hidden');
-    delayList('remove');
+    document.querySelector('.button-offc__icon').classList.remove('button-offc__icon--close');
+    delayList();
   }
 });
 
@@ -118,7 +119,12 @@ offCanvas.addEventListener('click', function (e) {
   if (target.classList.contains('off-list__link')) {
     const targetId = target.getAttribute('href');
     document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+    document
+      .querySelector('.button-offc__icon')
+      .classList.remove('button-offc__icon--close');
     offCanvas.classList.add('hidden');
+    
+    delayList();
   }
 });
 
