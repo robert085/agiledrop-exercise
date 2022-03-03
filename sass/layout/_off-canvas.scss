@@ -28,12 +28,17 @@
   text-align: center;
   font-family: "Montserrat", sans-serif;
   
-  transform: translateX(100%);
-  transition: all 0.8s;
-  opacity: 0;
+  // transform: translateX(100%);
+  // transition: all 0.8s;
+  // opacity: 0;
 
   &__item {
     list-style-type: none;
+
+     transform: translateX(100%);
+  transition: all 0.8s;
+  opacity: 0;
+  
     &:not(:last-of-type) {
       margin-bottom: 6rem;
     }

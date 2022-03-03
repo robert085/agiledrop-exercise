@@ -33,7 +33,7 @@ body {
       grid-template-columns: [full-start] minmax(4rem, 5rem) [content-start] repeat(auto-fit, [col-start] minmax(30rem, 1fr) [col-end]) [content-end] minmax(4rem, 5rem) [full-end]; } }
   @media only screen and (max-width: 52.125em) {
     .container {
-      grid-template-columns: [full-start] minmax(2rem, 6rem) [content-start] minmax(36rem, 1fr) [content-end] minmax(2rem, 6rem) [full-end];
+      grid-template-columns: [full-start] minmax(1rem, 6rem) [content-start] minmax(36rem, 1fr) [content-end] minmax(1rem, 6rem) [full-end];
       grid-template-rows: repeat(auto-fill, 1fr);
       grid-column-gap: 4vw; } }
 
@@ -143,6 +143,7 @@ h4 {
   border: none;
   cursor: pointer;
   border-top: 4px solid #f5f5f5;
+  border-bottom: 1px solid #ececec;
   transition: all 0.2s; }
   .btn-tab:hover, .btn-tab:active {
     background-color: #fff;
@@ -243,12 +244,12 @@ h4 {
 .off-list {
   font-size: 4rem;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  transform: translateX(100%);
-  transition: all 0.8s;
-  opacity: 0; }
+  font-family: "Montserrat", sans-serif; }
   .off-list__item {
-    list-style-type: none; }
+    list-style-type: none;
+    transform: translateX(100%);
+    transition: all 0.8s;
+    opacity: 0; }
     .off-list__item:not(:last-of-type) {
       margin-bottom: 6rem; }
   .off-list__link {
@@ -552,14 +553,16 @@ h4 {
 
 .button-offc {
   cursor: pointer;
-  padding: 1rem 0 1rem 1rem; }
+  padding: 1rem 0 1rem 1rem;
+  transition: all 0.3s; }
   .button-offc__icon {
     content: "";
     display: block;
     height: 3px;
     width: 4rem;
     border-radius: 100px;
-    background-color: #f5f5f5; }
+    background-color: #f5f5f5;
+    transition: all 0.3s; }
     .button-offc__icon::before {
       content: "";
       display: block;
@@ -576,6 +579,13 @@ h4 {
       border-radius: 50px;
       background-color: #f5f5f5;
       transform: translateY(7px); }
+    .button-offc__icon--close {
+      transition: all 0.3s;
+      transform: rotate(135deg); }
+      .button-offc__icon--close::before {
+        display: none; }
+      .button-offc__icon--close::after {
+        transform: rotate(90deg); }
 
 @media only screen and (max-width: 52.125em) {
   .hidde {
