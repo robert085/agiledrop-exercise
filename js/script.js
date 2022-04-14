@@ -16,6 +16,14 @@ const techNav = document.querySelector('.tech-box__nav');
 const techButtons = document.querySelectorAll('.btn-tab');
 const techContent = document.querySelectorAll('.tech-box__content');
 
+const btnDrupal = document.querySelector('.btn-drupal');
+const btnLaraver = document.querySelector('.btn-laraver');
+const btnVue = document.querySelector('.btn-vue');
+
+const drupal = document.getElementById('drupal');
+const laraver = document.getElementById('laraver');
+const vue = document.getElementById('vue');
+
 // STICKY NAV
 //////////////////////////
 const stickyNav = function (entries) {
@@ -50,7 +58,7 @@ document.querySelector('.list').addEventListener('click', function (e) {
 ///////////////////////////
 const secActive = function (entries) {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
   if (entry.isIntersecting) {
     const id = entry.target.getAttribute('id');
 
@@ -93,7 +101,9 @@ offCanvasBtn.addEventListener('click', function () {
     delayList();
   } else {
     offCanvas.classList.add('hidden');
-    document.querySelector('.button-offc__icon').classList.remove('button-offc__icon--close');
+    document
+      .querySelector('.button-offc__icon')
+      .classList.remove('button-offc__icon--close');
     delayList();
   }
 });
@@ -123,7 +133,7 @@ offCanvas.addEventListener('click', function (e) {
       .querySelector('.button-offc__icon')
       .classList.remove('button-offc__icon--close');
     offCanvas.classList.add('hidden');
-    
+
     delayList();
   }
 });
@@ -144,3 +154,26 @@ techNav.addEventListener('click', function (e) {
     document.getElementById(id).classList.remove('tech-hidden');
   });
 });
+
+const maxWidth = window.matchMedia('(max-width: 1000px)');
+
+//Helper function
+const condition = function (input) {
+  if (input.matches) {
+    console.log('LESS then 1000px', maxWidth);
+  
+    btnDrupal.after(drupal);
+    btnVue.after(vue);
+    btnLaraver.after(laraver);
+  } else {
+    console.log('MORE then 1000px', maxWidth);
+  
+    techNav.after(drupal);
+    techNav.after(vue);
+    techNav.after(laraver);
+  }
+}
+condition(maxWidth);
+maxWidth.onchange = (e) => {
+  condition(e)
+}
