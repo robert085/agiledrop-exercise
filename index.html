@@ -16,6 +16,7 @@
     <link rel="icon" type="vector/svg" href="svg/favicon.svg" />
 
     <title>Agiledrop</title>
+    <script defer src="js/script.js"></script>
   </head>
 
   <body>
@@ -213,14 +214,14 @@
         <h2>Technologies</h2>
         <div class="tech-box">
           <div class="tech-box__nav">
-            <button class="btn-tab btn-drupal" target="#drupal" data-btn="drupal">
+            <button class="btn-tab btn-drupal active" target="#drupal" data-btn="drupal">
               <h4 class="btn-tab__heading">Drupal development</h4>
               <p class="btn-tab__text">
                 Work with experienced Drupal developers
               </p>
             </button>
 
-            <button class="btn-tab btn-laraver active" target="#laraver" data-btn="laraver">
+            <button class="btn-tab btn-laraver" target="#laraver" data-btn="laraver">
               <h4 class="btn-tab__heading">Laraver development</h4>
               <p class="btn-tab__text">
                 Work with experienced Drupal developers
@@ -235,7 +236,7 @@
             </button>
           </div>
 
-          <div id="drupal" class="tech-box__content tech-hidden">
+          <div id="drupal" class="tech-box__content">
             <img
               src="img/tech-drupal-dev.jpg"
               alt="Agiledrop laraver development"
@@ -253,7 +254,7 @@
             </p>
           </div>
 
-          <div id="laraver" class="tech-box__content">
+          <div id="laraver" class="tech-box__content tech-hidden">
             <img
               src="img/tech-laraver-dev.jpg"
               alt="Agiledrop laraver development"
@@ -326,6 +327,5 @@
         </div>
       </div>
     </div>
-    <script src="js/script.js"></script>
   </body>
 </html>
