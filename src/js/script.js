@@ -177,3 +177,5 @@ condition(maxWidth);
 maxWidth.onchange = (e) => {
   condition(e)
 }
+
+console.log('at the end');

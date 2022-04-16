@@ -12,11 +12,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="vector/svg" href="svg/favicon.svg" />
+    <link rel="stylesheet" href="dist/css/main.min.css" />
+    <link rel="icon" type="vector/svg" href="src/svg/favicon.svg" />
 
     <title>Agiledrop</title>
-    <script defer src="js/script.js"></script>
+    <script defer src="dist/js/script.min.js"></script>
   </head>
 
   <body>
@@ -25,7 +25,10 @@
       <div class="nav-bar">
         <!--LOGO-->
         <a href="#top" class="logo__link"
-          ><img src="svg/logo-agiledrop.svg" alt="agiledrop logo" class="logo"
+          ><img
+            src="src/svg/logo-agiledrop.svg"
+            alt="agiledrop logo"
+            class="logo"
         /></a>
         <!--MAIN-MENU-->
         <div class="menu">
@@ -50,7 +53,7 @@
                 <span btn__link--text>Get developers</span>
                 <svg class="btn__icon">
                   <use
-                    xlink:href="img/sprite.svg#icon-chevron-thin-right"
+                    xlink:href="src/img/sprite.svg#icon-chevron-thin-right"
                   ></use>
                 </svg>
               </a>
@@ -95,7 +98,9 @@
             <a href="#" class="btn__link">
               <span btn__link--text>Primary CTA</span>
               <svg class="btn__icon">
-                <use xlink:href="img/sprite.svg#icon-chevron-thin-right"></use>
+                <use
+                  xlink:href="src/img/sprite.svg#icon-chevron-thin-right"
+                ></use>
               </svg>
             </a>
           </button>
@@ -115,7 +120,7 @@
         <div class="features-box">
           <div class="features">
             <img
-              src="svg/projects.svg"
+              src="src/svg/projects.svg"
               alt="Agiledrop Projects"
               class="features__image"
             />
@@ -129,7 +134,7 @@
               <a href="#" class="btn-small__link">
                 <span class="btn-small__link--span">Read more</span>
                 <svg class="btn-small__link--arrow">
-                  <use xlink:href="img/sprite.svg#icon-arrow-right2"></use>
+                  <use xlink:href="src/img/sprite.svg#icon-arrow-right2"></use>
                 </svg>
               </a>
             </button>
@@ -137,7 +142,7 @@
 
           <div class="features">
             <img
-              src="svg/teams.svg"
+              src="src/svg/teams.svg"
               alt="Agiledrop Projects"
               class="features__image"
             />
@@ -151,7 +156,7 @@
               <a href="#" class="btn-small__link">
                 <span class="btn-small__link--span">Read more</span>
                 <svg class="btn-small__link--arrow">
-                  <use xlink:href="img/sprite.svg#icon-arrow-right2"></use>
+                  <use xlink:href="src/img/sprite.svg#icon-arrow-right2"></use>
                 </svg>
               </a>
             </button>
@@ -159,7 +164,7 @@
 
           <div class="features">
             <img
-              src="svg/projects.svg"
+              src="src/svg/projects.svg"
               alt="Agiledrop Projects"
               class="features__image"
             />
@@ -173,7 +178,7 @@
               <a href="#" class="btn-small__link">
                 <span class="btn-small__link--span">Read more</span>
                 <svg class="btn-small__link--arrow">
-                  <use xlink:href="img/sprite.svg#icon-arrow-right2"></use>
+                  <use xlink:href="src/img/sprite.svg#icon-arrow-right2"></use>
                 </svg>
               </a>
             </button>
@@ -195,14 +200,14 @@
               <a href="#" class="btn-small__link">
                 <span class="btn-small__link--span">Read more</span>
                 <svg class="btn-small__link--arrow">
-                  <use xlink:href="img/sprite.svg#icon-arrow-right2"></use>
+                  <use xlink:href="src/img/sprite.svg#icon-arrow-right2"></use>
                 </svg>
               </a>
             </button>
           </div>
 
           <img
-            src="img/solutions-1.jpg"
+            src="src/img/solutions-1.jpg"
             alt="Agiledrop solutions"
             class="solutions-img"
           />
@@ -210,18 +215,26 @@
       </section>
 
       <!--TECHNOLOGIES-->
-       <section class="technologies" id="section--3">
+      <section class="technologies" id="section--3">
         <h2>Technologies</h2>
         <div class="tech-box">
           <div class="tech-box__nav">
-            <button class="btn-tab btn-drupal active" target="#drupal" data-btn="drupal">
+            <button
+              class="btn-tab btn-drupal active"
+              target="#drupal"
+              data-btn="drupal"
+            >
               <h4 class="btn-tab__heading">Drupal development</h4>
               <p class="btn-tab__text">
                 Work with experienced Drupal developers
               </p>
             </button>
 
-            <button class="btn-tab btn-laraver" target="#laraver" data-btn="laraver">
+            <button
+              class="btn-tab btn-laraver"
+              target="#laraver"
+              data-btn="laraver"
+            >
               <h4 class="btn-tab__heading">Laraver development</h4>
               <p class="btn-tab__text">
                 Work with experienced Drupal developers
@@ -238,7 +251,7 @@
 
           <div id="drupal" class="tech-box__content">
             <img
-              src="img/tech-drupal-dev.jpg"
+              src="src/img/tech-drupal-dev.jpg"
               alt="Agiledrop laraver development"
               class="tech-img"
             />
@@ -256,7 +269,7 @@
 
           <div id="laraver" class="tech-box__content tech-hidden">
             <img
-              src="img/tech-laraver-dev.jpg"
+              src="src/img/tech-laraver-dev.jpg"
               alt="Agiledrop laraver development"
               class="tech-img"
             />
@@ -274,7 +287,7 @@
 
           <div id="vue" class="tech-box__content tech-hidden">
             <img
-              src="img/tech-vue-dev.jpg"
+              src="src/img/tech-vue-dev.jpg"
               alt="Agiledrop laraver development"
               class="tech-img"
             />
@@ -285,8 +298,8 @@
                 community.</strong
               ><br /><br />Work with experienced Drupal developers that follow
               best practices and standards and are active in the Drupal
-              community. Work with experienced Drupal developers.<br /><br />Work with experienced Drupal developers that
-              follow best practices.
+              community. Work with experienced Drupal developers.<br /><br />Work
+              with experienced Drupal developers that follow best practices.
             </p>
           </div>
         </div>
@@ -295,10 +308,10 @@
       <!--ABOUT-->
       <section class="about" id="section--4">
         <figure class="quote">
-          <img src="img/person.jpg" alt="cofounder" class="quote__img" />
+          <img src="src/img/person.jpg" alt="cofounder" class="quote__img" />
           <figcaption class="quote__caption">
             <span class="mark">
-              <img src="svg/quotation-mark.svg" alt="quote" />
+              <img src="src/svg/quotation-mark.svg" alt="quote" />
             </span>
             <em
               >An important aspect for us is that external developers blend in
@@ -306,12 +319,12 @@
               that Agiledrop as a company provides us, allows us to scale our
               business further.</em
             >
-            <span class="founder" 
+            <span class="founder"
               >Co-Founder & COO, Dropsolid
               <strong>Steven Pepermans</strong></span
             >
-          </figcaption> 
-        </figure> 
+          </figcaption>
+        </figure>
         <div class="pagination">
           <div class="pagination__circle"></div>
           <div class="pagination__circle pagination__circle--active"></div>
