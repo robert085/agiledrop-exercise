@@ -9,13 +9,14 @@ const pipeline = require('readable-stream').pipeline;
 const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const htmlmin = require('gulp-htmlmin');
 
 // SRC PATHS
 pathSRC = {
   sass: './src/sass/**/*.scss',
   js: './src/js/**/*.js',
   img: './src/img/**/*.+(jpg|svg|png)',
-  html: './*.html',
+  html: './src/*.html',
 };
 
 // DIST PATHS
@@ -61,6 +62,13 @@ function jsTask() {
   );
 }
 
+// HTMLMIN
+function htmlTask() {
+  return src(pathSRC.html)
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./'));
+}
+
 // IMGAGEMIN
 function imageMin() {
   return src(pathSRC.img).pipe(imagemin()).pipe(dest(pathDIST.img));
@@ -77,6 +85,7 @@ task('watch', function () {
 
   watch(pathSRC.sass, sassTask).on('change', browserSync.reload);
   watch(pathSRC.js, jsTask).on('change', browserSync.reload);
+  watch(pathSRC.html, htmlTask).on('change', browserSync.reload);
 });
 
 exports.watch = 'watch';
