@@ -50,7 +50,7 @@ function jsTask() {
     sourceMaps.init({ loadMaps: true }),
     uglify(),
     babel({
-      presets: ['@babel/env'],
+      presets: ['@babel/preset-env'],
     }),
     sourceMaps.write('.'),
     rename(function (path) {
@@ -87,5 +87,11 @@ task('watch', function () {
   watch(pathSRC.js, jsTask).on('change', browserSync.reload);
   watch(pathSRC.html, htmlTask).on('change', browserSync.reload);
 });
+
+exports.sassTask = sassTask;
+exports.jsTask = jsTask;
+exports.htmlTask = htmlTask;
+
+exports.build = parallel([sassTask, jsTask, htmlTask]);
 
 exports.watch = 'watch';

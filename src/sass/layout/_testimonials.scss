@@ -2,19 +2,43 @@
   @include sec-pad;
   grid-column: content-start / content-end;
   align-content: center;
+  // overflow: auto;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+
+    overflow: hidden;
+  }
+}
+
+.slide {
+  flex: 1 0 100%;
+  transition: transform 1s;
+
+  &--1 {
+    // background-color: antiquewhite;
+  }
+  &--2 {
+    // background-color: rgb(120, 174, 199);
+  }
+  &--3 {
+    // background-color: rgb(135, 204, 126);
+  }
 }
 
 .quote {
   display: flex;
   flex-direction: row;
   align-items: center;
+  // transform: translateX(100%);
 
   &__img {
     width: 48rem;
     height: 48rem;
     border-radius: 500px;
     border: 15rem solid $color-grey-light;
-    margin-left: -4rem;
+    // margin-left: -4rem;
   }
 
   &__caption {
@@ -25,6 +49,7 @@
     color: $font-quote;
     margin-left: -10rem;
     padding: 3.2rem 0;
+    padding-right: 2rem;
     z-index: 1;
 
     .mark {

@@ -160,22 +160,49 @@ const maxWidth = window.matchMedia('(max-width: 1000px)');
 //Helper function
 const condition = function (input) {
   if (input.matches) {
-    console.log('LESS then 1000px', maxWidth);
-  
+    // console.log('LESS then 1000px', maxWidth);
+
     btnDrupal.after(drupal);
     btnVue.after(vue);
     btnLaraver.after(laraver);
   } else {
-    console.log('MORE then 1000px', maxWidth);
-  
+    // console.log('MORE then 1000px', maxWidth);
+
     techNav.after(drupal);
     techNav.after(vue);
     techNav.after(laraver);
   }
-}
+};
 condition(maxWidth);
-maxWidth.onchange = (e) => {
-  condition(e)
-}
+maxWidth.onchange = e => {
+  condition(e);
+};
 
-console.log('at the end');
+// ABOUT-SLIDER
+///////////////////////
+
+const slides = document.querySelectorAll('.slide');
+console.log(slides);
+let slide = 0;
+
+// SLIDER
+const slider = function () {
+  slides.forEach((_, i) => {
+    setTimeout(() => {
+      slide++;
+      if (slide <= slides.length - 1) {
+        slides.forEach(s => {
+          s.style.transform = `translateX(-${100 * slide}%)`;
+          console.log(slide);
+        });
+      } else {
+        slide = 0;
+        slides.forEach(s => {
+          s.style.transform = `translateX(${100 * slide}%)`;
+        });
+      }
+    }, (i + 1) * 2000);
+  });
+};
+
+slider();
