@@ -186,23 +186,4 @@ console.log(slides);
 let slide = 0;
 
 // SLIDER
-const slider = function () {
-  slides.forEach((_, i) => {
-    setTimeout(() => {
-      slide++;
-      if (slide <= slides.length - 1) {
-        slides.forEach(s => {
-          s.style.transform = `translateX(-${100 * slide}%)`;
-          console.log(slide);
-        });
-      } else {
-        slide = 0;
-        slides.forEach(s => {
-          s.style.transform = `translateX(${100 * slide}%)`;
-        });
-      }
-    }, (i + 1) * 2000);
-  });
-};
 
-slider();
