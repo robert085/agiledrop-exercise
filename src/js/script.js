@@ -181,9 +181,37 @@ maxWidth.onchange = e => {
 // ABOUT-SLIDER
 ///////////////////////
 
-const slides = document.querySelectorAll('.slide');
-console.log(slides);
-let slide = 0;
-
 // SLIDER
+const slider = function () {
+  // Variables
+  const slides = document.querySelectorAll('.slide');
+  let slide = 0;
+
+  const moveSlide = function () {
+    slide++;
+    if (slide <= slides.length - 1) {
+      slides.forEach(s => {
+        s.style.transform = `translateX(-${100 * slide}%)`;
+        console.log(slide);
+      });
+    } else {
+      slide = 0;
+      slides.forEach(s => {
+        s.style.transform = `translateX(${100 * slide}%)`;
+      });
+    }
+  };
+
+  const delaySlide = function () {
+    slides.forEach((_, i) => {
+      setTimeout(() => {
+        moveSlide();
+      }, (i + 1) * 2000);
+    });
+  };
+
+  delaySlide();
+
+  //end
+};
 
