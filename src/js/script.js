@@ -209,10 +209,8 @@ const slider = function () {
       }, (i + 1) * 2000);
     });
   };
-
   delaySlide();
 
   //end
 };
-
 slider();
