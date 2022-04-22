@@ -5,10 +5,10 @@
   // overflow: auto;
 
   &__container {
-    // display: flex;
-    // flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-    overflow: visible;
+    overflow: hidden;
   }
 }
 
@@ -17,13 +17,13 @@
   transition: transform 1s;
 
   &--1 {
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
   }
   &--2 {
-    background-color: rgb(120, 174, 199);
+    // background-color: rgb(120, 174, 199);
   }
   &--3 {
-    background-color: rgb(135, 204, 126);
+    // background-color: rgb(135, 204, 126);
   }
 }
 
