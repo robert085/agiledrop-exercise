@@ -185,31 +185,42 @@ maxWidth.onchange = e => {
 const slider = function () {
   // Variables
   const slides = document.querySelectorAll('.slide');
+  const pagination = document.querySelectorAll('.pagination__circle');
+  
   let slide = 0;
 
+  const changePagination = () => {
+  pagination.forEach(p => {
+    p.classList.remove('pagination__circle--active');
+    document
+      .querySelector(`.circle-${slide + 1}`)
+      .classList.add('pagination__circle--active');
+  });
+}
+
   const moveSlide = function () {
-    slide++;
-    if (slide <= slides.length - 1) {
+    if (slide < slides.length - 1) {
+      slide++;
+      console.log(slide);
       slides.forEach(s => {
         s.style.transform = `translateX(-${100 * slide}%)`;
-        console.log(slide);
       });
+
+      changePagination()
+
+
     } else {
       slide = 0;
+      changePagination()
       slides.forEach(s => {
         s.style.transform = `translateX(${100 * slide}%)`;
       });
     }
   };
 
-  const delaySlide = function () {
-    slides.forEach((_, i) => {
-      setTimeout(() => {
-        moveSlide();
-      }, (i + 1) * 2000);
-    });
-  };
-  delaySlide();
+  setInterval(() => {
+    moveSlide();
+  }, 3000);
 
   //end
 };

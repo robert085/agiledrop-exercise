@@ -101,6 +101,7 @@
     border-radius: 100px;
     background-color: $color-grey-dark;
     margin-left: 16px;
+    transition: all 0.4s;
 
     &--active {
       background-color: $color-primary;

@@ -1,6 +1,5 @@
 .off-canvas {
   background-color: $color-secondary;
-  opacity: 0.95;
   position: fixed;
   top: 0;
   right: 0;
@@ -26,8 +25,8 @@
 .off-list {
   font-size: 4rem;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  
+  font-family: 'Montserrat', sans-serif;
+
   // transform: translateX(100%);
   // transition: all 0.8s;
   // opacity: 0;
@@ -35,10 +34,10 @@
   &__item {
     list-style-type: none;
 
-     transform: translateX(100%);
-  transition: all 0.8s;
-  opacity: 0;
-  
+    transform: translateX(100%);
+    transition: all 0.8s;
+    opacity: 0;
+
     &:not(:last-of-type) {
       margin-bottom: 6rem;
     }
