@@ -26,162 +26,180 @@ const vue = document.getElementById('vue');
 
 // STICKY NAV
 //////////////////////////
-const stickyNav = function (entries) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) {
-    nav.classList.add('sticky');
-  } else nav.classList.remove('sticky');
+const stickyNav = function () {
+  const sticky = function (entries) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) {
+      nav.classList.add('sticky');
+    } else nav.classList.remove('sticky');
+  };
+
+  const stickyObserver = new IntersectionObserver(sticky, {
+    root: null,
+    threshold: 0.14,
+  });
+
+  stickyObserver.observe(header);
 };
-
-const stickyObserver = new IntersectionObserver(stickyNav, {
-  root: null,
-  threshold: 0.14,
-});
-
-stickyObserver.observe(header);
+stickyNav();
 
 // SCROLL TO
 //////////////////////////
 // window.addEventListener('scroll', function (e) {});
+const scrollTo = function () {
+  document.querySelector('.list').addEventListener('click', function (e) {
+    e.preventDefault();
 
-document.querySelector('.list').addEventListener('click', function (e) {
-  e.preventDefault();
+    const clicked = e.target.closest('.list__link');
+    if (!clicked) return;
+    const id = clicked.getAttribute('href');
 
-  const clicked = e.target.closest('.list__link');
-  if (!clicked) return;
-  const id = clicked.getAttribute('href');
-
-  document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-});
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  });
+};
+scrollTo();
 
 // ACTIVE SECTION - OBSERVER
 ///////////////////////////
-const secActive = function (entries) {
-  const [entry] = entries;
-  // console.log(entry);
-  if (entry.isIntersecting) {
-    const id = entry.target.getAttribute('id');
+const sectionObserver = function () {
+  const secActive = function (entries) {
+    const [entry] = entries;
+    // console.log(entry);
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
 
-    links.forEach(link => {
-      // console.log(link.getAttribute('href'));
-      if (link.getAttribute('href') === `#${id}`) {
-        link.classList.add('list__link--active');
-      } else link.classList.remove('list__link--active');
-    });
-  }
+      links.forEach(link => {
+        // console.log(link.getAttribute('href'));
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('list__link--active');
+        } else link.classList.remove('list__link--active');
+      });
+    }
+  };
+
+  const secObserver = new IntersectionObserver(secActive, {
+    root: null,
+    threshold: 0.6,
+  });
+
+  sections.forEach(sec => {
+    secObserver.observe(sec);
+  });
 };
-
-const secObserver = new IntersectionObserver(secActive, {
-  root: null,
-  threshold: 0.6,
-});
-
-sections.forEach(sec => {
-  secObserver.observe(sec);
-});
+sectionObserver();
 
 // BUTTON OFF CANVAS
 //////////////////////////////
-// Helper function __________________________
-const delayList = function () {
-  offCanvasLI.forEach((item, i) => {
-    setTimeout(function () {
-      item.classList.toggle('reveal-list');
-      console.log(i);
-    }, i * 100);
+const btnOffCanvas = function () {
+  // Helper function __________________________
+  const delayList = function () {
+    offCanvasLI.forEach((item, i) => {
+      setTimeout(function () {
+        item.classList.toggle('reveal-list');
+        console.log(i);
+      }, i * 100);
+    });
+  };
+  // _________________________________________
+  offCanvasBtn.addEventListener('click', function () {
+    if (offCanvas.classList.contains('hidden')) {
+      offCanvas.classList.remove('hidden');
+      document
+        .querySelector('.button-offc__icon')
+        .classList.add('button-offc__icon--close');
+      delayList();
+    } else {
+      offCanvas.classList.add('hidden');
+      document
+        .querySelector('.button-offc__icon')
+        .classList.remove('button-offc__icon--close');
+      delayList();
+    }
   });
 };
-// _________________________________________
-offCanvasBtn.addEventListener('click', function () {
-  if (offCanvas.classList.contains('hidden')) {
-    offCanvas.classList.remove('hidden');
-    document
-      .querySelector('.button-offc__icon')
-      .classList.add('button-offc__icon--close');
-    delayList();
-  } else {
-    offCanvas.classList.add('hidden');
-    document
-      .querySelector('.button-offc__icon')
-      .classList.remove('button-offc__icon--close');
-    delayList();
-  }
-});
+btnOffCanvas();
 
 // LOGO - home
 ///////////////////////
-logo.addEventListener('click', function (e) {
-  e.preventDefault();
-  const logo = e.target.closest('.logo__link');
-  const id = logo.getAttribute('href');
-  document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+const logoHome = function () {
+  logo.addEventListener('click', function (e) {
+    e.preventDefault();
+    const logo = e.target.closest('.logo__link');
+    const id = logo.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
-  if (!offCanvas.classList.contains('hidden'))
-    offCanvas.classList.add('hidden');
-});
+    if (!offCanvas.classList.contains('hidden'))
+      offCanvas.classList.add('hidden');
+  });
+};
+logoHome();
 
 // OFF CANVAS MENU
 ///////////////////////
-offCanvas.addEventListener('click', function (e) {
-  e.preventDefault();
-  const target = e.target;
+const offCanvasMenu = function () {
+  offCanvas.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = e.target;
 
-  if (target.classList.contains('off-list__link')) {
-    const targetId = target.getAttribute('href');
-    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-    document
-      .querySelector('.button-offc__icon')
-      .classList.remove('button-offc__icon--close');
-    offCanvas.classList.add('hidden');
+    if (target.classList.contains('off-list__link')) {
+      const targetId = target.getAttribute('href');
+      document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+      document
+        .querySelector('.button-offc__icon')
+        .classList.remove('button-offc__icon--close');
+      offCanvas.classList.add('hidden');
 
-    delayList();
-  }
-});
+      delayList();
+    }
+  });
+};
+offCanvasMenu();
 
 // TECHNOLOGIES
 ///////////////////////
-techNav.addEventListener('click', function (e) {
-  const btn = e.target.closest('.btn-tab');
-  const id = btn.dataset.btn;
+const technologiesTab = function () {
+  techNav.addEventListener('click', function (e) {
+    const btn = e.target.closest('.btn-tab');
+    const id = btn.dataset.btn;
 
-  techButtons.forEach(b => {
-    b.classList.remove('active');
-    btn.classList.add('active');
+    techButtons.forEach(b => {
+      b.classList.remove('active');
+      btn.classList.add('active');
+    });
+
+    techContent.forEach(content => {
+      content.classList.add('tech-hidden');
+      document.getElementById(id).classList.remove('tech-hidden');
+    });
   });
 
-  techContent.forEach(content => {
-    content.classList.add('tech-hidden');
-    document.getElementById(id).classList.remove('tech-hidden');
-  });
-});
+  const maxWidth = window.matchMedia('(max-width: 1000px)');
 
-const maxWidth = window.matchMedia('(max-width: 1000px)');
+  //Helper function
+  const condition = function (input) {
+    if (input.matches) {
+      // console.log('LESS then 1000px', maxWidth);
 
-//Helper function
-const condition = function (input) {
-  if (input.matches) {
-    // console.log('LESS then 1000px', maxWidth);
+      btnDrupal.after(drupal);
+      btnVue.after(vue);
+      btnLaraver.after(laraver);
+    } else {
+      // console.log('MORE then 1000px', maxWidth);
 
-    btnDrupal.after(drupal);
-    btnVue.after(vue);
-    btnLaraver.after(laraver);
-  } else {
-    // console.log('MORE then 1000px', maxWidth);
-
-    techNav.after(drupal);
-    techNav.after(vue);
-    techNav.after(laraver);
-  }
+      techNav.after(drupal);
+      techNav.after(vue);
+      techNav.after(laraver);
+    }
+  };
+  condition(maxWidth);
+  maxWidth.onchange = e => {
+    condition(e);
+  };
 };
-condition(maxWidth);
-maxWidth.onchange = e => {
-  condition(e);
-};
+technologiesTab();
 
 // ABOUT-SLIDER
 ///////////////////////
-
-// SLIDER
 const slider = function () {
   // Variables
   const slides = document.querySelectorAll('.slide');
