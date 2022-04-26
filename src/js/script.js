@@ -186,41 +186,58 @@ const slider = function () {
   // Variables
   const slides = document.querySelectorAll('.slide');
   const pagination = document.querySelectorAll('.pagination__circle');
-  
+  const about = document.querySelector('.about');
+
   let slide = 0;
 
   const changePagination = () => {
-  pagination.forEach(p => {
-    p.classList.remove('pagination__circle--active');
-    document
-      .querySelector(`.circle-${slide + 1}`)
-      .classList.add('pagination__circle--active');
-  });
-}
+    pagination.forEach(p => {
+      p.classList.remove('pagination__circle--active');
+      document
+        .querySelector(`.circle-${slide + 1}`)
+        .classList.add('pagination__circle--active');
+    });
+  };
 
   const moveSlide = function () {
     if (slide < slides.length - 1) {
       slide++;
-      console.log(slide);
       slides.forEach(s => {
         s.style.transform = `translateX(-${100 * slide}%)`;
       });
 
-      changePagination()
-
-
+      changePagination();
     } else {
       slide = 0;
-      changePagination()
+      changePagination();
       slides.forEach(s => {
         s.style.transform = `translateX(${100 * slide}%)`;
       });
     }
   };
 
-  setInterval(() => {
-    moveSlide();
-  }, 3000);
+  //>>>>>>>>>>>>>>>>
+  // STOP & RUN
+  let interval = setInterval(moveSlide, 3000);
+
+  const sliderStop = () => {
+    about.addEventListener('mouseenter', function () {
+      clearInterval(interval);
+      interval = undefined;
+      console.log('animation should stop');
+    });
+  };
+  sliderStop();
+
+  const sliderRun = () => {
+    about.addEventListener('mouseleave', () => {
+      if (interval === undefined) {
+        interval = setInterval(moveSlide, 3000);
+        console.log('animation should run');
+      }
+    });
+  };
+  sliderRun();
 
   //end
 };

@@ -48,10 +48,10 @@ function jsTask() {
   return pipeline(
     src(pathSRC.js),
     sourceMaps.init({ loadMaps: true }),
-    uglify(),
     babel({
       presets: ['@babel/preset-env'],
     }),
+    uglify(),
     sourceMaps.write('.'),
     rename(function (path) {
       if (!path.extname.endsWith('.map')) {
@@ -95,3 +95,5 @@ exports.htmlTask = htmlTask;
 exports.build = parallel([sassTask, jsTask, htmlTask]);
 
 exports.watch = 'watch';
+
+exports.default = series([exports.build, 'watch'])
